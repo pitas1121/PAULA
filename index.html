@@ -7,7 +7,7 @@
 
 <style>
     
-  contenedor{
+.contenedor{
     width:90%;
     max-width:420px;
 }
@@ -95,27 +95,56 @@ button:active{
     font-size:30px;
 
     height:90px;
+    width:80%;
+    max-width:320px;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    text-align:center;
-
     border-radius:18px;
 
     box-shadow:0 10px 25px rgba(0,0,0,0.2);
 
-    transition:all 0.25s ease;
+    position:relative;
+    overflow:hidden;
+
+    transition:transform 0.2s;
 }
 
-#inicio:hover{
-    transform:translateY(-3px);
-    box-shadow:0 14px 30px rgba(0,0,0,0.25);
-}
-
+/* efecto cuando lo presionan */
 #inicio:active{
     transform:scale(0.96);
+}
+
+/* brillo animado */
+#inicio::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:60%;
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.8),
+        transparent
+    );
+
+    transform:skewX(-25deg);
+
+    animation:brillo 3s infinite;
+}
+
+@keyframes brillo{
+    0%{
+        left:-120%;
+    }
+    100%{
+        left:120%;
+    }
 }
 
 /* BOTON SI */
@@ -139,30 +168,41 @@ button:active{
 </head>
 
 <body>
+
 <div class="fondo"></div>
 
 <div class="contenedor">
+
 <button id="inicio" onclick="mostrarPregunta()">Presióname</button>
 
 <div id="pregunta">
 
-<h2>Hola </h2>
+<h2>Hola</h2>
 
 <p>
-Me pareces muy linda y no quería quedarme con las ganas de decírtelo. Para no arriesgarme a que la profe me mande al frente por hablar... ¿te gustaría salir conmigo a tomar algo después?
+Me pareces muy linda y no quería quedarme con las ganas de decírtelo.  
+Para no arriesgarme a que la profe me mande al frente por hablar...  
+¿te gustaría salir conmigo a tomar algo después?
 </p>
 
-<button class="si" onclick="irWhatsApp()">Sí </button>
-<button class="no" onclick="respuestaNo()">No </button>
+<button class="si" onclick="irWhatsApp()">Sí</button>
+<button class="no" onclick="respuestaNo()">No</button>
 
+</div>
+
+<div id="respuestaSi">
+<h2>Me alegra que dijeras que sí 😊</h2>
 </div>
 
 <div id="respuestaNo">
-<h2>Devuélveme </h2>
+<h2>Devuélveme 😅</h2>
+</div>
+
 </div>
 
 <script>
-    const fondo = document.querySelector(".fondo");
+
+const fondo = document.querySelector(".fondo");
 
 function crearBurbuja(){
     const burbuja = document.createElement("div");
@@ -186,7 +226,14 @@ function mostrarPregunta(){
 }
 
 function irWhatsApp(){
-    window.location.href = "https://wa.me/573024793431?text=Dejame%20tu%20numero%20<3";
+
+    document.getElementById("pregunta").style.display="none";
+    document.getElementById("respuestaSi").style.display="block";
+
+    setTimeout(function(){
+        window.location.href = "https://wa.me/573024793431?text=Dejame%20tu%20numero";
+    },1500);
+
 }
 
 function respuestaNo(){
@@ -198,6 +245,7 @@ function respuestaNo(){
 </div>
 </body>
 </html>
+
 
 
 
