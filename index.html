@@ -84,14 +84,13 @@ button{
     transition:0.2s;
 }
 
-/* EFECTO CUANDO LO TOCAN */
 button:active{
     transform:scale(0.96);
 }
 
 /* BOTON INICIAL */
 #inicio{
-    background:#ff6b81;
+    background:#7b8cff;
     color:white;
     font-size:30px;
 
@@ -110,11 +109,11 @@ button:active{
     position:relative;
     overflow:hidden;
 
-    transition:transform 0.2s;
+    transition:0.2s;
 }
 
 #inicio:hover{
-    background:#ff7b8f;
+    background:#8f9cff;
 }
 
 /* brillo animado */
@@ -153,6 +152,22 @@ button:active{
 .no{
     background:white;
     color:#e63946;
+}
+
+/* ANIMACION SUAVE */
+.animacion{
+    animation:aparecer 0.7s ease;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:scale(0.9);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
 /* OCULTAR AL INICIO */
@@ -220,13 +235,19 @@ setInterval(crearBurbuja,400);
 
 function mostrarPregunta(){
     document.getElementById("inicio").style.display="none";
-    document.getElementById("pregunta").style.display="block";
+
+    const pregunta = document.getElementById("pregunta");
+    pregunta.style.display="block";
+    pregunta.classList.add("animacion");
 }
 
 function irWhatsApp(){
 
     document.getElementById("pregunta").style.display="none";
-    document.getElementById("respuestaSi").style.display="block";
+
+    const respuesta = document.getElementById("respuestaSi");
+    respuesta.style.display="block";
+    respuesta.classList.add("animacion");
 
     setTimeout(function(){
         window.location.href = "https://wa.me/573024793431?text=Dejame%20tu%20numero";
@@ -236,7 +257,10 @@ function irWhatsApp(){
 
 function respuestaNo(){
     document.getElementById("pregunta").style.display="none";
-    document.getElementById("respuestaNo").style.display="block";
+
+    const respuesta = document.getElementById("respuestaNo");
+    respuesta.style.display="block";
+    respuesta.classList.add("animacion");
 }
 
 </script>
