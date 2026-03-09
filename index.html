@@ -6,11 +6,12 @@
 <title>Una pregunta para ti</title>
 
 <style>
-    
+
 .contenedor{
     width:90%;
     max-width:420px;
 }
+
 .fondo{
     position:fixed;
     top:0;
@@ -42,7 +43,7 @@
     }
 }
 
-/* FONDO ELEGANTE */
+/* FONDO */
 body{
     font-family: "Segoe UI", Arial, sans-serif;
     text-align:center;
@@ -90,8 +91,8 @@ button:active{
 
 /* BOTON INICIAL */
 #inicio{
-    background:white;
-    color:#e63946;
+    background:#ff6b81;
+    color:white;
     font-size:30px;
 
     height:90px;
@@ -112,9 +113,8 @@ button:active{
     transition:transform 0.2s;
 }
 
-/* efecto cuando lo presionan */
-#inicio:active{
-    transform:scale(0.96);
+#inicio:hover{
+    background:#ff7b8f;
 }
 
 /* brillo animado */
@@ -139,12 +139,8 @@ button:active{
 }
 
 @keyframes brillo{
-    0%{
-        left:-120%;
-    }
-    100%{
-        left:120%;
-    }
+    0%{ left:-120%; }
+    100%{ left:120%; }
 }
 
 /* BOTON SI */
@@ -159,8 +155,10 @@ button:active{
     color:#e63946;
 }
 
+/* OCULTAR AL INICIO */
 #pregunta,
-#respuestaNo{
+#respuestaNo,
+#respuestaSi{
     display:none;
 }
 
@@ -242,9 +240,10 @@ function respuestaNo(){
 }
 
 </script>
-</div>
+
 </body>
 </html>
+
 
 
 
