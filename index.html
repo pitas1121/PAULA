@@ -2,32 +2,56 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Una pregunta para ti</title>
+
 <style>
+
 body{
     font-family: Arial, sans-serif;
     text-align:center;
-    margin-top:100px;
+    background:#ffe6f0;
+    padding:40px 20px;
+}
+
+h2{
+    font-size:28px;
+}
+
+p{
+    font-size:20px;
 }
 
 button{
-    padding:10px 20px;
-    font-size:18px;
+    width:80%;
+    max-width:300px;
+    padding:15px;
+    font-size:20px;
     margin:10px;
-    cursor:pointer;
+    border:none;
+    border-radius:10px;
 }
 
-#pregunta{
-    display:none;
+#inicio{
+    background:#ff4d88;
+    color:white;
 }
 
-#respuestaSi{
-    display:none;
+.si{
+    background:#4CAF50;
+    color:white;
 }
 
+.no{
+    background:#ff4444;
+    color:white;
+}
+
+#pregunta,
 #respuestaNo{
     display:none;
 }
+
 </style>
 </head>
 
@@ -36,40 +60,46 @@ button{
 <button id="inicio" onclick="mostrarPregunta()">Presióname</button>
 
 <div id="pregunta">
-    <h2>Hola 😊</h2>
-    <p>Solo quería decirte que me pareces muy bonita.<br>
-    ¿Aceptarías salir conmigo a una cita?</p>
 
-    <button onclick="respuestaSi()">Sí</button>
-    <button onclick="respuestaNo()">No</button>
-</div>
+<h2>Hola 😊</h2>
 
-<div id="respuestaSi">
-    <h2>¡Genial! 😄</h2>
-    <p>Escanea mi QR y escríbeme por WhatsApp</p>
-    <img src="tuQR.png" width="200">
+<p>
+Solo quería decirte que me pareces muy bonita.<br><br>
+¿Aceptarías salir conmigo a una cita?
+</p>
+
+<button class="si" onclick="irWhatsApp()">Sí ❤️</button>
+
+<button class="no" onclick="respuestaNo()">No 😢</button>
+
 </div>
 
 <div id="respuestaNo">
-    <h2>Devuélveme 😢</h2>
+
+<h2>Devuélveme </h2>
+
 </div>
 
 <script>
+
 function mostrarPregunta(){
     document.getElementById("inicio").style.display="none";
     document.getElementById("pregunta").style.display="block";
 }
 
-function respuestaSi(){
-    document.getElementById("pregunta").style.display="none";
-    document.getElementById("respuestaSi").style.display="block";
+function irWhatsApp(){
+    window.location.href = "https://wa.me/573024793431?text=Hola%20acepto%20la%20cita%";
 }
 
 function respuestaNo(){
     document.getElementById("pregunta").style.display="none";
     document.getElementById("respuestaNo").style.display="block";
 }
+
 </script>
 
 </body>
 </html>
+
+
+
