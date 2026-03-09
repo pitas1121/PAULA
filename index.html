@@ -1,13 +1,75 @@
-index.html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Mi Página</title>
+<meta charset="UTF-8">
+<title>Una pregunta para ti</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    text-align:center;
+    margin-top:100px;
+}
+
+button{
+    padding:10px 20px;
+    font-size:18px;
+    margin:10px;
+    cursor:pointer;
+}
+
+#pregunta{
+    display:none;
+}
+
+#respuestaSi{
+    display:none;
+}
+
+#respuestaNo{
+    display:none;
+}
+</style>
 </head>
+
 <body>
 
-    <h1>Hola mundo</h1>
+<button id="inicio" onclick="mostrarPregunta()">Presióname</button>
+
+<div id="pregunta">
+    <h2>Hola 😊</h2>
+    <p>Solo quería decirte que me pareces muy bonita.<br>
+    ¿Aceptarías salir conmigo a una cita?</p>
+
+    <button onclick="respuestaSi()">Sí</button>
+    <button onclick="respuestaNo()">No</button>
+</div>
+
+<div id="respuestaSi">
+    <h2>¡Genial! 😄</h2>
+    <p>Escanea mi QR y escríbeme por WhatsApp</p>
+    <img src="tuQR.png" width="200">
+</div>
+
+<div id="respuestaNo">
+    <h2>Devuélveme 😢</h2>
+</div>
+
+<script>
+function mostrarPregunta(){
+    document.getElementById("inicio").style.display="none";
+    document.getElementById("pregunta").style.display="block";
+}
+
+function respuestaSi(){
+    document.getElementById("pregunta").style.display="none";
+    document.getElementById("respuestaSi").style.display="block";
+}
+
+function respuestaNo(){
+    document.getElementById("pregunta").style.display="none";
+    document.getElementById("respuestaNo").style.display="block";
+}
+</script>
 
 </body>
 </html>
